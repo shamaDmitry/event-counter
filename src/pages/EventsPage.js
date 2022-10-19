@@ -1,8 +1,15 @@
+import Navigation from "../components/Navigation";
+
 const EventsPage = () => {
   return (
-    <h1>
-      EventsPage
-    </h1>
+    <>
+      <Navigation />
+
+      <h1>
+        EventsPage
+      </h1>
+    </>
+
   )
 }
 
