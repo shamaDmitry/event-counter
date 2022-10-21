@@ -1,71 +1,29 @@
 import Navigation from "../components/Navigation";
-import { Button, Input, Modal, Row, Text } from "@nextui-org/react";
+import AddEventModal from "../components/AddEventModal/AddEventModal";
+import { Container, Button } from "@nextui-org/react";
+import Counter from "../components/Counter";
 import { useState } from "react";
 
 const HomePage = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const targetTime = new Date('2022/10/22 08:00:00').getTime() / 1000;
 
-  const closeHandler = () => {
-    setIsModalVisible(false)
+  const handleSave = (event, arg) => {
+
   }
-
-  const openModal = () => setIsModalVisible(true)
 
   return (
     <>
       <Navigation />
 
-      <h1>
-        Homepage
-      </h1>
+      <Container>
+        <h1>
+          Homepage
+        </h1>
 
-      <Button auto shadow onPress={openModal}>
-        Open modal
-      </Button>
+        <AddEventModal save={handleSave} />
 
-      <Modal
-        closeButton
-        aria-labelledby="modal-title"
-        open={isModalVisible}
-        onClose={closeHandler}
-      >
-        <Modal.Header>
-          <Text id="modal-title" size={18}>
-            Welcome to
-            <Text b size={18}>
-              NextUI
-            </Text>
-          </Text>
-        </Modal.Header>
-
-        <Modal.Body>
-          <Input
-            clearable
-            bordered
-            fullWidth
-            color="primary"
-            size="lg"
-            placeholder="Email"
-          />
-          <Input
-            clearable
-            bordered
-            fullWidth
-            color="primary"
-            size="lg"
-            placeholder="Password"
-          />
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button auto flat color="error" onPress={closeHandler}>
-            Close
-          </Button>
-          <Button auto onPress={closeHandler}>
-            Sign in
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Counter targetTime={targetTime} />
+      </Container>
     </>
   )
 }

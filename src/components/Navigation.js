@@ -9,9 +9,11 @@ const Navigation = () => {
     <nav>
       <Navbar>
         <Navbar.Brand>
-          <Text b color="inherit">
-            EventCounter
-          </Text>
+          <NavLink to="/">
+            <Text b color="inherit">
+              EventCounter
+            </Text>
+          </NavLink>
         </Navbar.Brand>
 
         <Navbar.Content>
